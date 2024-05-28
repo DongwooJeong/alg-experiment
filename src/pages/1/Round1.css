@@ -1,0 +1,144 @@
+.exp-container {
+  width: 900px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* 테이블 셀 간의 경계선을 하나로 합침 */
+    text-align: center;
+}
+  
+th, td {
+    padding: 8px 12px; /* 상하 8px, 좌우 12px 패딩 적용 */
+    border: 1px solid #ccc; /* 셀 경계선 스타일링 */
+    border-bottom: 1px solid #ddd; /* 행의 하단 경계선에 스타일 적용 */
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* 짝수 번째 행에 적용될 배경색 */
+}
+  
+tr:hover {
+    background-color: #ddd; /* 행 위에 마우스를 올렸을 때의 배경색 */
+}
+  
+.choice-container {
+  width: 350px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.invisible-table {
+    width: 100%;
+    border-collapse: collapse; /* 셀 사이의 간격을 없앰 */
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+.invisible-table td {
+    padding: 8px; /* 셀 내부의 패딩을 조절하여 간격을 일정하게 만듦 */
+    border: none; /* 셀의 경계선을 숨김 */
+}
+  
+  /* 선택한 행의 배경색 변경을 위한 추가 스타일 */
+.invisible-table tr:hover {
+    background-color: #f2f2f2;
+}
+  
+  /* 라벨과 라디오 버튼의 정렬을 위한 스타일 */
+.invisible-table label {
+    display: block;
+    text-align: center; 
+}
+  
+.invisible-table input[type="radio"] {
+    margin-right: 10px; /* 라벨과 라디오 버튼 사이의 간격 조절 */
+}
+
+.recButtonRound {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px; 
+    width: 300px;
+    display: block; /* 확실한 중앙 정렬을 위해 명시적으로 block으로 설정 */
+    margin-left: auto; /* 중앙 정렬을 위해 */
+    margin-right: auto; /* 중앙 정렬을 위해 */
+}
+  
+.button-container {
+    display: flex; /* Flexbox 사용 */
+    justify-content: space-around; 
+    margin-bottom: 50px;
+}
+
+.divStyle {
+  width: 100%;
+}
+
+fieldset {
+  overflow: hidden;
+  width: 90%;
+  margin: auto;
+  display: inline-block;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+input[type=radio],
+input.radio {
+  float: left;
+  clear: none;
+  margin: 2px 0 0 2px;
+}
+
+.question {
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.radio-options {
+  display: flex;
+  justify-content: space-around;
+}
+
+.word {
+  text-align: center;
+}
+
+.select-center {
+  display: flex;
+  justify-content: center;
+}
+
+select {
+  display: block;
+  width: 80%;
+  font-size: 1em;
+  padding: 0.8rem 0.5rem;
+  border: 1px solid #333;
+  font-family: inherit;
+  /** for the dropdown indicator */
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+  

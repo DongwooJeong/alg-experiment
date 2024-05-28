@@ -1,0 +1,37 @@
+.title-box {
+  text-align: center;
+  margin: 20px 0;
+  margin-top: 50px;
+  width: 500px;
+  display: block; /* 확실한 중앙 정렬을 위해 명시적으로 block으로 설정 */
+  margin-left: auto; /* 중앙 정렬을 위해 */
+  margin-right: auto; /* 중앙 정렬을 위해 */
+}
+  
+.title-box h2 {
+    margin-bottom: 10px; /* 추가한 부분: 제목 아래 여백 조절 */
+  }
+  
+.title-box p {
+    margin-top: 5px; /* 추가한 부분: 부제목 위 여백 조절 */
+  }
+  
+.title-content {
+    border: 2px solid #3498db;
+    border-radius: 10px;
+    padding: 10px;
+    display: inline-block;
+    margin: 0 auto;
+    width: 300px;
+  }
+  
+.title-content h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+.title-content p {
+    font-size: 14px;
+    color: #555;
+  }

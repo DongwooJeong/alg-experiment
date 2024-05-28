@@ -1,0 +1,25 @@
+.exp-container {
+  width: 900px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+.center-container button {
+    margin-left: 500px; /* Investment Decision 버튼의 좌우 간격 조정 */
+    margin-right: 500px;
+    margin-bottom: 50px;
+    background-color: aquamarine;
+    color: black;
+  }
+  

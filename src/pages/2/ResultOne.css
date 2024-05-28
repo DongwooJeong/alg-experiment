@@ -1,0 +1,59 @@
+.result-container {
+    width: 900px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+  }
+  
+  th, td {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+  }
+  
+  tr:nth-child(even) {
+      background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+      background-color: #ddd;
+  }
+  
+  /* 여기서부터는 ExperimentOne.css에서 직접 가져오지 않은 새로운 스타일입니다 */
+  .performance-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .performance-table {
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  
+  .recButton {
+      background-color: #28a745; /* 결과 페이지에서는 다른 버튼 색상을 사용할 수 있음 */
+      color: #fff;
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      width: 400px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  
