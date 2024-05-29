@@ -68,15 +68,19 @@ function ResultOne() { // 수정 1
 
     // profit 계산
     const finalProfit = useMemo(() => {
-        if (!userProfits || !selectedStockData) {
+        if (!userProfits ) {
             return null;
         }
-    
+        
         // 수정 3
         let startingCapital = userProfits.beginning;
-    
+        let profitPercentage = 0;
+
         // selectedStockData의 base_price와 future_price를 사용하여 수익률 계산
-        const profitPercentage = parseFloat(calculateDifference(selectedStockData.base_price, selectedStockData.future_price));
+        if (selectedStockData) {
+            profitPercentage = parseFloat(calculateDifference(selectedStockData.base_price, selectedStockData.future_price));
+        }
+        
     
         // 계산된 수익률을 사용하여 최종 수익 계산
         const newProfit = startingCapital * (1 + (profitPercentage / 100));

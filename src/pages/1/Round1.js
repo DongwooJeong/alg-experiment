@@ -287,8 +287,11 @@ return (
                         </tbody>
                     </table>
                 </div>
+                <div>
+                    <p>아래의 두 가지 주식 종목 추천 방식 중에 <strong>한 가지</strong>를 선택하여 확인할 수 있습니다. 왼쪽은 높은 수익률을 낼 종목을 알고리즘 기반으로 <strong>직접 예측하여 종목을 추천</strong>하고, 오른쪽은 투자자의 투자 성향에 대한 <strong>간단한 설문 후에 답변에 기반한 종목을 추천</strong>합니다.</p>
+                </div>
                 <div className="button-container">
-                <p>두 가지 AI 추천 방식 중에 한 가지를 선택할 수 있습니다.</p>
+                
                     <div className='divStyle'>
                         
                       {isButtonVisible && (

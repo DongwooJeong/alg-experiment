@@ -18,7 +18,7 @@ const surveyQuestions = [
 
   { question: '투자 성향 설문조사 결과에 기반한 AI 추천 종목이 일반 AI 추천 종목보다 유용했습니까? (Was the AI recommendation based on your investment preference survey more helpful than the regular AI recommendation?)', 
     type: 'likertScale', 
-    scaleLabels: ['훨씬 더 유용함 (Much more)', '약간 더 유용함 (Slightly more)', '비슷함 (About the same)', '덜 유용함 (Less helpful)', '잘 모르겠음 (Not sure)'] },
+    scaleLabels: ['훨씬 더 유용함 (Much more)', '약간 더 유용함 (Slightly more)', '비슷함 (About the same)', '덜 유용함 (Less helpful)', '잘 모르겠음 (Not applicable)'] },
 
   { question: 'AI 추천을 따랐을 때와 그렇지 않았을 때의 경제적 성과에는 어떤 차이가 있었습니까? (What was the difference in economic outcomes when following AI advice versus not?)', 
     type: 'likertScale', 
