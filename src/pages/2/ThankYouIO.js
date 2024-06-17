@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './ThankYou.css';
+import '../style.css';
 
 function ThankYou() {
     const navigate = useNavigate();
@@ -18,7 +18,7 @@ function ThankYou() {
             </div>
              <strong>정동우</strong>
              <p>Dongwoo Jeong</p>
-            <button onClick={goToLogin} className="login-button">실험 종료 (End Experiment)</button>
+            <button onClick={goToLogin} className="btn-green">실험 종료 (End Experiment)</button>
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './InstructionPage.css';
+import '../style.css';
 
 function InstructionPage() {
   const [language, setLanguage] = useState('EN'); // 기본 언어를 영어로 설정
@@ -51,13 +51,27 @@ function InstructionPage() {
     }    
   };
 
+  const handleLanguageChange = (lang) => {
+    setLanguage(lang);
+  };
+
   return (
     <div className="instruction-container">
       <div className="instruction-box">
       <div className="language-switcher">
-        <button className="btn-switch" onClick={() => setLanguage('EN')}>English</button>
-        <button className="btn-switch" onClick={() => setLanguage('KR')}>한글</button>
-      </div> 
+          <button 
+            className={`btn-switch ${language === 'EN' ? 'active' : ''}`} 
+            onClick={() => handleLanguageChange('EN')}
+          >
+            English
+          </button>
+          <button 
+            className={`btn-switch ${language === 'KR' ? 'active' : ''}`} 
+            onClick={() => handleLanguageChange('KR')}
+          >
+            한글
+          </button>
+        </div>  
         <h2>{instructions[language].title}</h2>
         <p>{instructions[language].description}</p>
         <p><strong>실험 절차 (Experiment Procedure):</strong></p>
@@ -79,7 +93,7 @@ function InstructionPage() {
       </div>
       <div className="button-box">
         <Link to="/2/round-one">
-          <button className="btn-treatment">Begin Experiment</button>
+          <button className="btn-green">Begin Experiment</button>
         </Link>
       </div>
     </div>

@@ -1,0 +1,529 @@
+.divCenter {
+  text-align: center;
+}
+  
+  .login-container {
+    width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .login-label {
+    display: block;
+    text-align: left; 
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .login-input {
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #3498db;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  .login-button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px; /* 버튼 폰트 크기를 원하는 크기로 변경 */
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px; /* 에러 메시지 폰트 크기를 원하는 크기로 변경 */
+  }
+  
+  .additional-links {
+    margin-top: 20px;
+    font-size: 14px; /* 추가 링크 폰트 크기를 원하는 크기로 변경 */
+  }
+  
+  .additional-links a {
+    margin: 5px;
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .register-container {
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 40px;
+  }
+
+  .register-label {
+    display: block;
+    text-align: left; 
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .register-input {
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #3498db;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  .register-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 15px;
+  }
+
+  .fp-container {
+    width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .fp-label {
+    display: block;
+    text-align: left; 
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .fp-input {
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #3498db;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  .fp-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 15px;
+  }  
+
+  .login-button:hover {
+    background-color: #17811a;
+  }
+  
+  .register-button:hover {
+    background-color: #17811a;
+  }
+  
+  .fp-button:hover {
+    background-color: #17811a;
+  }
+  
+  .survey-question-container {
+    margin-top: 40px;
+    margin-bottom: 40px; 
+    text-align: left; 
+  }
+
+  .survey-question-container label {
+    display: inline-block;
+    margin-right: 10px;
+    width: 150px;
+    margin-bottom: 8px;
+  }
+
+  .survey-question-container input[type="radio"] + label {
+    margin-left: 5px;
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+
+  .survey-question-container select {
+    margin-top: 5px;
+    margin-left: 20px;
+    width: 300px;
+  }
+
+  .survey-question-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .survey-container {
+    width: 1000px; 
+    margin-top: 50px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .survey-button {
+    background-color: #28a745; /* 결과 페이지에서는 다른 버튼 색상을 사용할 수 있음 */
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: medium;
+}
+
+.btn-green:hover {
+  background-color: #17811a;
+}
+
+.survey-button:hover {
+  background-color: #17811a;
+}
+
+.btn-switch:hover {
+    background-color: #4CAF50;
+  }
+
+  .instruction-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 모든 자식 요소를 수직 중앙 정렬 */
+    justify-content: center;
+    width: 100%;
+    max-width: 800px; /* 적당한 최대 너비 설정 */
+    margin: auto; /* 좌우 자동 마진으로 중앙 정렬 */
+    padding: 20px;
+  }
+
+  .instruction-container h2 {
+    text-align: center;
+  }
+  
+  .language-switcher {
+    display: flex;
+    justify-content: center; /* 전체적으로 중앙 정렬 */
+    width: 100%; /* 부모 요소에 대해 전체 너비 사용 */
+    margin-bottom: 20px;
+  }
+  
+
+  .btn-switch {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #ddd; /* 비활성화 상태의 배경색 */
+    color: #666; /* 비활성화 상태의 글자색 */
+    width: 100%;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 0 10px; /* 좌우 간격 추가 */
+    transition: background-color 0.3s, color 0.3s; /* 부드러운 색상 전환 */
+    border-radius: 5px;
+}
+
+.btn-switch.active {
+    background-color: #4CAF50; /* 활성화 상태의 배경색 */
+    color: white; /* 활성화 상태의 글자색 */
+}
+
+  
+  .instruction-box {
+    width: 100%; /* 전체 너비 사용 */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+  
+  .btn-green {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 400px;
+    font-size: 16px; /* 버튼 폰트 크기를 원하는 크기로 변경 */
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .exp-container {
+    width: 900px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .timer {
+    margin-bottom: 10px;
+  }
+  
+  table {
+      width: 100%;
+      border-collapse: collapse; /* 테이블 셀 간의 경계선을 하나로 합침 */
+      text-align: center;
+  }
+    
+  th, td {
+      padding: 12px 12px; /* 상하 8px, 좌우 12px 패딩 적용 */
+      border: 1px solid #f2f2f2; /* 셀 경계선 스타일링 */
+      border-bottom: 1px solid #ddd; /* 행의 하단 경계선에 스타일 적용 */
+      text-align: center;
+  }
+
+  .financialTable th {
+    background-color: #ddd; /* 행 위에 마우스를 올렸을 때의 배경색 */
+}
+.financialTable tr:nth-child(even) {
+      background-color: #f2f2f2; /* 짝수 번째 행에 적용될 배경색 */
+  }
+    
+  .financialTable tr:hover {
+      background-color: #ddd; /* 행 위에 마우스를 올렸을 때의 배경색 */
+  }
+    
+  .choice-container {
+    width: 350px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .invisible-table {
+      width: 100%;
+      height: 300px;
+      border-collapse: collapse; /* 셀 사이의 간격을 없앰 */
+      margin-left: auto;
+      margin-right: auto;
+  }
+    
+  .invisible-table td {
+      padding: 8px; /* 셀 내부의 패딩을 조절하여 간격을 일정하게 만듦 */
+      border: none; /* 셀의 경계선을 숨김 */
+  }
+
+  .invisible-table tr:nth-child(odd) {
+    background-color: #f2f2f2; /* 짝수 번째 행에 적용될 배경색 */
+}
+    
+    /* 선택한 행의 배경색 변경을 위한 추가 스타일 */
+  .invisible-table tr:hover {
+      background-color: #f2f2f2;
+  }
+    
+    /* 라벨과 라디오 버튼의 정렬을 위한 스타일 */
+  .invisible-table label {
+      display: block;
+      text-align: center; 
+  }
+    
+  .invisible-table input[type="radio"] {
+      margin-right: 10px; /* 라벨과 라디오 버튼 사이의 간격 조절 */
+  }
+  
+  .recButtonRound {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px; 
+      width: 300px;
+      display: block; /* 확실한 중앙 정렬을 위해 명시적으로 block으로 설정 */
+      margin-left: auto; /* 중앙 정렬을 위해 */
+      margin-right: auto; /* 중앙 정렬을 위해 */
+      font-size: medium;
+      padding-bottom: 10px;
+  }
+    
+  .button-container {
+      display: flex; /* Flexbox 사용 */
+      justify-content: space-around; 
+      margin-bottom: 50px;
+  }
+  
+  .divStyle {
+    width: 100%;
+  }
+  
+
+  
+  .question {
+    margin-bottom: 10px;
+    justify-content: center;
+  }
+  
+  .radio-options {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .word {
+    text-align: center;
+  }
+  
+  .select-center {
+    display: flex;
+    justify-content: center;
+  }
+  
+  select {
+    display: block;
+    width: 80%;
+    font-size: 1em;
+    padding: 0.8rem 0.5rem;
+    border: 1px solid #333;
+    font-family: inherit;
+    /** for the dropdown indicator */
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+  }
+  
+  .result-container {
+    width: 900px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+  }
+  .result-container h2 {
+    text-align: center;
+  }
+  
+  .performance-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .performanceTable {
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .performanceTable th {
+    background-color: #ddd; /* 행 위에 마우스를 올렸을 때의 배경색 */
+}
+
+  .performanceTable tr:nth-child(even) {
+    background-color: #f2f2f2; /* 짝수 번째 행에 적용될 배경색 */
+}
+    
+    /* 선택한 행의 배경색 변경을 위한 추가 스타일 */
+  .performanceTable tr:hover {
+      background-color: #f2f2f2;
+  }
+  
+  .recButton {
+      background-color: #28a745; /* 결과 페이지에서는 다른 버튼 색상을 사용할 수 있음 */
+      color: #fff;
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      width: 400px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: medium;
+  }
+    
+
+
+  .thank-you-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 800px;
+    border: 1px solid #ccc;
+    margin-top: 50px;
+  }
+  
+  h1 {
+    color: #333; /* 제목 색상 */
+    margin-bottom: 20px; /* 제목과 내용 사이의 여백 */
+  }
+  
+  .typ {
+    text-align: center; /* 문단 내용을 가운데 정렬합니다. */
+    line-height: 1.6; /* 줄 간격 */
+    margin-bottom: 15px; /* 문단 간 여백 */
+    color: #666; /* 문단 텍스트 색상 */
+  }
+  
+  .contact-info {
+    margin: 20px 0; /* 연락처 정보 위아래 여백 */
+    font-style: italic; /* 연락처 정보 스타일 */
+  }
+  
+  .buttonCenter {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }

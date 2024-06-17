@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo  } from 'react';
-import './ResultOne.css'; 
 import { MY_URL } from '../../url';
+import '../style.css';
 
 
 function ResultFive() { // 수정 1
@@ -130,7 +130,7 @@ function ResultFive() { // 수정 1
                 <p>3개월 후 주가 (Price after three months): {aiRecommendedStockData?.future_price}</p>
             </div>
             <h3>모든 종목의 주가 정보 (All Stocks Performance)</h3>
-            <table>
+            <table className='performanceTable'>
                 <thead>
                     <tr>
                         <th>회사명 (Company)</th>
@@ -155,7 +155,7 @@ function ResultFive() { // 수정 1
                 <p>5라운드 후 투자자의 최종 수익 (Final Profit after Round 5): {finalProfit}</p> {/* 수정 6 */}
             </div>
             <div className='buttonCenter'>
-            <button onClick={() => {
+            <button className="btn-green" onClick={() => {
                 saveUserProfit(finalProfit).then(() => {
                     window.location.href = '/1/round-six'; // {/* 수정 7 */}
                 })

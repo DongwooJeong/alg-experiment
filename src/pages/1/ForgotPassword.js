@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import './ForgotPassword.css';
 import { MY_URL } from '../../url';
-
+import '../style.css';
 
 function ForgotPassword() {
     const [email, setEmail] = useState('');
@@ -37,8 +36,9 @@ function ForgotPassword() {
             <h2>Password Recovery</h2>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="email">Email Address:</label>
+                    <label className = 'fp-label' htmlFor="email">Email Address:</label>
                     <input
+                        className='fp-input'
                         type="email"
                         id="email"
                         value={email}
@@ -46,7 +46,7 @@ function ForgotPassword() {
                         required
                     />
                 </div>
-                <button type="submit">Send Password Reset Link</button>
+                <button className = 'fp-button' type="submit">Send Password Reset Link</button>
             </form>
         </div>
     );

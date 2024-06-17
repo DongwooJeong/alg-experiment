@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import TitleBox from './TitleBox';
-import './LoginPage.css';
 import { MY_URL } from '../../url';
+import '../style.css'
 
 
 function LoginPage() {
@@ -43,16 +43,16 @@ function LoginPage() {
             <div className='login-container'>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Email
-                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <label className='login-label'>Email
+                        <input className = 'login-input' type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                     </label>
                 </div>
                 <div>
-                    <label>Password
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                    <label className='login-label'>Password
+                        <input className = 'login-input' type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                     </label>
                 </div>
-                <button type="submit">Login</button>
+                <button className = 'login-button' type="submit">Login</button>
             </form>
             <div className="additional-links">
           <p>

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './BeforeSurvey.css'; 
 import { useNavigate } from 'react-router-dom';
 import { MY_URL } from '../../url';
-
+import '../style.css';
 
 const surveyQuestions = [
   { question: '실험을 통한 최종 수익에 AI 추천과 본인의 판단 중 어느 것이 더 큰 기여를 했습니까? (Which contributed more to your final profits through the experiment: AI recommendations or your own judgment?)', 
@@ -19,7 +18,7 @@ const surveyQuestions = [
 
   { question: '투자 성향 설문조사 결과에 기반한 AI 추천 종목이 일반 AI 추천 종목보다 유용했습니까? (Was the AI recommendation based on your investment preference survey more helpful than the regular AI recommendation?)', 
     type: 'likertScale', 
-    scaleLabels: ['훨씬 더 유용함 (Much more)', '약간 더 유용함 (Slightly more)', '비슷함 (About the same)', '덜 유용함 (Less helpful)', '잘 모르겠음 (Not sure)'] },
+    scaleLabels: ['훨씬 더 유용함 (Much more)', '약간 더 유용함 (Slightly more)', '비슷함 (About the same)', '덜 유용함 (Less helpful)', '잘 모르겠음 (Not applicable)'] },
 
   { question: 'AI 추천을 따랐을 때와 그렇지 않았을 때의 경제적 성과에는 어떤 차이가 있었습니까? (What was the difference in economic outcomes when following AI advice versus not?)', 
     type: 'likertScale', 
@@ -115,12 +114,12 @@ function AfterSurvey() {
         };
       
         return (
-          <div className="survey-container">
+          <div className="survey-container" style={{width: '1200px'}}>
             <h2>최종 설문 (Final Survey)</h2>
             <form onSubmit={handleSubmit}>
               {renderSurveyQuestions()}
-              <div className='buttonCenter'>
-              <button type="submit">제출 (Submit)</button>
+              <div>
+                <button className='survey-button' type="submit" style={{ width: '400px' }}>Submit</button>
               </div>
             </form>
           </div>

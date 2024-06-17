@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './BeforeSurvey.css'; 
 import { useNavigate } from 'react-router-dom';
 import { MY_URL } from '../../url';
+import '../style.css';
 
 const surveyQuestions = [
   { question: '실험을 통한 최종 수익에 AI 추천과 본인의 판단 중 어느 것이 더 큰 기여를 했습니까? (Which contributed more to your final profits through the experiment: AI recommendations or your own judgment?)', 
@@ -95,7 +95,7 @@ function AfterSurvey() {
                   }}
                 >
                   {q.scaleLabels.map((label, labelIndex) => (
-                    <label key={labelIndex} className="survey-label" style={{ textAlign: 'center' }}>
+                    <label key={labelIndex} style={{ textAlign: 'center' }}>
                       <input
                         type="radio"
                         name={`likertScale_${index}`}
@@ -114,12 +114,12 @@ function AfterSurvey() {
         };
       
         return (
-          <div className="survey-container">
+          <div className="survey-container" style={{width: '1200px'}}>
             <h2>최종 설문 (Final Survey)</h2>
             <form onSubmit={handleSubmit}>
               {renderSurveyQuestions()}
-              <div className='buttonCenter'>
-              <button type="submit">제출 (Submit)</button>
+              <div>
+                <button className='survey-button' type="submit" style={{ width: '400px' }}>Submit</button>
               </div>
             </form>
           </div>

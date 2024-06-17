@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './BeforeSurvey.css';
 import { useNavigate } from 'react-router-dom';
 import { MY_URL } from '../../url';
+import '../style.css';
 
 
 const surveyQuestions = [
@@ -27,12 +27,13 @@ function BeforeSurvey() {
   const [answers, setAnswers] = useState(surveyQuestions.map(() => ''));
   const [userEmail, setUserEmail] = useState('');
 
+
   useEffect(() => {
     const email = localStorage.getItem('userId');
     if (email) {
       setUserEmail(email);
     } else {
-      navigate('/1/login');
+      navigate('/1/');
     }
   }, [navigate]);
 
@@ -44,6 +45,17 @@ function BeforeSurvey() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // const isAllAnswered = answers.every(answer => answer !== '');
+    //   if (!isAllAnswered) {
+    //     alert('모든 질문에 답해주세요.');
+    //     return;
+    //   }
+    // if (answers[0].trim() === '') {
+    //   alert('성별을 입력해주세요.');
+    //   return;
+    // }
+
     try {
       const response = await fetch(`${MY_URL}/api/users/survey`, {
         method: 'POST',
@@ -55,7 +67,7 @@ function BeforeSurvey() {
 
       if (response.ok) {
         alert('Survey submitted successfully.');
-        navigate('/1/instruction-page');
+        navigate('/1/second-survey');
       } else {
         alert('Failed to submit survey.');
       }
@@ -101,7 +113,7 @@ function BeforeSurvey() {
               }}
             >
               {q.scaleLabels.map((label, labelIndex) => (
-                <label key={labelIndex} className="survey-label" style={{ textAlign: 'center' }}>
+                <label key={labelIndex} style={{ textAlign: 'center' }}>
                   <input
                     type="radio"
                     name={`likertScale_${index}`}
@@ -130,11 +142,11 @@ function BeforeSurvey() {
 
   return (
     <div className="survey-container">
-      <h2>Survey</h2>
+      <h2>Survey 1</h2>
       <form onSubmit={handleSubmit}>
         {renderSurveyQuestions()}
-        <div className='buttonCenter'>
-        <button type="submit">Submit</button>
+        <div>
+          <button className = 'survey-button' type="submit">Submit</button>
         </div>
       </form>
     </div>

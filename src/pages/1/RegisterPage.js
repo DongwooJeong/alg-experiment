@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './RegisterPage.css';
 import TitleBox from './TitleBox';
 import { useNavigate } from 'react-router-dom';
+import '../style.css';
 import { MY_URL } from '../../url';
 
 function RegisterPage() {
@@ -77,37 +77,44 @@ function RegisterPage() {
                 <TitleBox title="주식 투자 실험" subtitle="Stock Investment Experiment" />
             </div>
             <div className="register-container">
-                <h2>Create Account</h2>
+                <div className='divCenter'>
+                    <h2>Create Account</h2>
+                </div>
                     <form onSubmit={(e) => e.preventDefault()}>
-                        <label>
+                        <label className='register-label'>
                             이메일 (Email)
                             <input
+                            className='register-input'
                             type="text"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             />
                         </label>
-                        <label>
+                        <label className='register-label'>
                             비밀번호 (Password)
                             <input
+                            className='register-input'
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             />
                         </label>
-                        <label>
+                        <label className='register-label'>
                             비밀번호 확인 (Confirm Password)
                             <input
+                            className='register-input'
                             type="password"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             />
                         </label>
-                        <div className='buttonCenter'>
-                        <button type="button" onClick={handleSubmit}>
+                        <div>
+                        <button type="button" className="register-button" onClick={handleSubmit}>
                             회원가입 (Signup)
-                        </button></div>
-                        {error && <p className="error">{error}</p>}
+                        </button> </div>  
+                        <div className='divCenter'>                    
+                            {error && <p className="error">{error}</p>}
+                        </div>
                     </form>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './BeforeSurvey.css';
 import { useNavigate } from 'react-router-dom';
+import '../style.css'
 import { MY_URL } from '../../url';
 
 
@@ -27,12 +27,13 @@ function BeforeSurvey() {
   const [answers, setAnswers] = useState(surveyQuestions.map(() => ''));
   const [userEmail, setUserEmail] = useState('');
 
+
   useEffect(() => {
     const email = localStorage.getItem('userId');
     if (email) {
       setUserEmail(email);
     } else {
-      navigate('/2/login');
+      navigate('/2/');
     }
   }, [navigate]);
 
@@ -44,6 +45,17 @@ function BeforeSurvey() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // const isAllAnswered = answers.every(answer => answer !== '');
+    //   if (!isAllAnswered) {
+    //     alert('모든 질문에 답해주세요.');
+    //     return;
+    //   }
+    // if (answers[0].trim() === '') {
+    //   alert('성별을 입력해주세요.');
+    //   return;
+    // }
+
     try {
       const response = await fetch(`${MY_URL}/api/users/survey`, {
         method: 'POST',
@@ -55,7 +67,7 @@ function BeforeSurvey() {
 
       if (response.ok) {
         alert('Survey submitted successfully.');
-        navigate('/2/instruction-page');
+        navigate('/2/second-survey');
       } else {
         alert('Failed to submit survey.');
       }
@@ -101,7 +113,7 @@ function BeforeSurvey() {
               }}
             >
               {q.scaleLabels.map((label, labelIndex) => (
-                <label key={labelIndex} className="survey-label" style={{ textAlign: 'center' }}>
+                <label key={labelIndex} style={{ textAlign: 'center' }}>
                   <input
                     type="radio"
                     name={`likertScale_${index}`}
@@ -129,12 +141,12 @@ function BeforeSurvey() {
   };
 
   return (
-    <div className="survey-container">
-      <h2>Survey</h2>
+    <div className="survey-container" style={{ width: '1000px' }}>
+      <h2>Survey 1</h2>
       <form onSubmit={handleSubmit}>
         {renderSurveyQuestions()}
-        <div class='buttonCenter'>
-        <button type="submit">Submit</button>
+        <div>
+          <button className='survey-button'>Submit</button>
         </div>
       </form>
     </div>
