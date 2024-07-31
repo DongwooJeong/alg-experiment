@@ -34,7 +34,7 @@ function ResultNine() { // 수정 1
         fetch(`${MY_URL}/api/financialsRoutes/aiRecommendations/${round}`)
             .then(response => response.json())
             .then(data => {
-                setAiRecommendedStock(data.company); // 응답 구조에 따라 변경될 수 있음
+                setAiRecommendedStock(data.company_id); // 응답 구조에 따라 변경될 수 있음
             })
             .catch(error => console.error('Error fetching ai recommended stock:', error));
     
@@ -53,8 +53,8 @@ function ResultNine() { // 수정 1
     };
 
     // 선택된 주식과 AI 추천 주식 정보 필터링
-    const selectedStockData = financialData.find(item => item.company === selectedStock);
-    const aiRecommendedStockData = financialData.find(item => item.company === aiRecommendedStock);
+    const selectedStockData = financialData.find(item => item.company_id === selectedStock);
+    const aiRecommendedStockData = financialData.find(item => item.company_id === aiRecommendedStock);
 
     // 전체 주식 목록을 수익률에 따라 정렬
     const sortedFinancialData = financialData.map(item => ({
@@ -63,19 +63,23 @@ function ResultNine() { // 수정 1
     })).sort((a, b) => b.profit - a.profit);
 
     // 가장 높은 수익률의 주식 찾기
-    const highestProfitStock = sortedFinancialData[0]?.company;
+    const highestProfitStock = sortedFinancialData[0]?.company_id;
 
     // profit 계산
     const finalProfit = useMemo(() => {
-        if (!userProfits || !selectedStockData) {
+        if (!userProfits ) {
             return null;
         }
-    
+        
         // 수정 3
         let startingCapital = userProfits.profit_8;
-    
+        let profitPercentage = 0;
+
         // selectedStockData의 base_price와 future_price를 사용하여 수익률 계산
-        const profitPercentage = parseFloat(calculateDifference(selectedStockData.base_price, selectedStockData.future_price));
+        if (selectedStockData) {
+            profitPercentage = parseFloat(calculateDifference(selectedStockData.base_price, selectedStockData.future_price));
+        }
+        
     
         // 계산된 수익률을 사용하여 최종 수익 계산
         const newProfit = startingCapital * (1 + (profitPercentage / 100));
@@ -119,12 +123,12 @@ function ResultNine() { // 수정 1
         <div className='result-container'>
             <h2>Round 9 Result</h2> {/* 수정 5 */}
             <div>
-                <h3>투자자가 선택한 종목 (Selected Stock): {selectedStockData?.company}</h3>
+                <h3>투자자가 선택한 종목 (Selected Stock): {selectedStockData?.company_id}</h3>
                 <p>기존 주가 (Base price): {selectedStockData?.base_price}</p>
                 <p>3개월 후 주가 (Price after three months): {selectedStockData?.future_price}</p>
             </div>
             <div>
-                <h3>AI 추천 종목 (AI Recommended Stock): {aiRecommendedStockData?.company}</h3>
+                <h3>AI 추천 종목 (AI Recommended Stock): {aiRecommendedStockData?.company_id}</h3>
                 <p>기존 주가 (Base price): {aiRecommendedStockData?.base_price}</p>
                 <p>3개월 후 주가 (Price after three months): {aiRecommendedStockData?.future_price}</p>
             </div>
@@ -141,7 +145,7 @@ function ResultNine() { // 수정 1
                 <tbody>
                     {sortedFinancialData.map((item, index) => (
                         <tr key={index}>
-                            <td>{item.company}</td>
+                            <td>{item.company_id}</td>
                             <td>{item.base_price}</td>
                             <td>{item.future_price}</td>
                             <td>{item.profit}</td>
@@ -151,7 +155,7 @@ function ResultNine() { // 수정 1
             </table>
             <div>
                 <p>가장 높은 수익의 종목 (Highest Profit Stock): {highestProfitStock}</p>
-                <p>9라운드 후 투자자의 최종 수익 (Final Profit after Round 9): {finalProfit}</p> {/* 수정 6 */}
+                <p>9라운드 후 투자자의 누적 수익 (Cumulative Profit after Round 9): {finalProfit}</p> {/* 수정 6 */}
             </div>
             <div class='buttonCenter'>
             <button className="btn-green" onClick={() => {

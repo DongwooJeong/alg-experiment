@@ -9,17 +9,25 @@ const surveyQuestions = [
   { question: '연령대를 선택해 주세요. (Please select your age range):', type: 'options', options: ['18세 미만 (Under 18)', '18-24세 (18-24)', '25-34세 (25-34)', '35-44세 (35-44)', '45-54세 (45-54)', '55-64세 (55-64)', '65세 이상 (65 or above)'] },
   { question: '최종 학력을 선택해 주세요. (Please select your highest level of education):', type: 'options', options: ['고등학교 졸업 이하 (High School or less)', '대학 재학 중 (Some College)', '학사 학위 (Bachelor\'s Degree)', '석사 학위 (Master\'s Degree)', '박사 학위 또는 전문 학위 (Doctorate or Professional Degree)'] },
   { question: '현재 직업을 선택해 주세요. (Please select your current occupation):', type: 'options', options: ['없음 (None)', '학생 (Student)', '회사원 (Office worker)', '교수 (Professor)', '자영업자 (Self-employed)', '프리랜서 (Freelancer)', '기타 (Other)'] },
-  // AI 경험 질문
-  { question: '귀하의 분야(업무 및 학습 환경 등)에서 AI를 사용해본 경험이 있습니까? (Do you have experience using AI in your field (work or academic environment)?):', type: 'options', options: ['예 (Yes)', '아니오 (No)'] },
-  // 아래는 예를 선택했을 때 나오는 꼬리 질문들
+  { question: '귀하의 분야(업무 및 학습 환경 등)에서 AI 기술(예: 자동 번역, 추천 시스템, ChatGPT 등)을 사용해본 경험이 있습니까? (Have you used Artificial Intelligence (AI) technologies such as automated translation, recommendation systems, or ChatGPT in your field (work or academic environment)?):', type: 'options', options: ['예 (Yes)', '아니오 (No)'] },
   { question: '귀하의 분야에서 AI 사용이 얼마나 도움이 되었습니까? (How helpful was using AI in your field?):', type: 'likertScale', scaleLabels: ['전혀 도움이 되지 않음 (Not Helpful at All)', '조금 도움이 됨 (Slightly Helpful)', '도움이 됨 (Moderately Helpful)', '매우 도움이 됨 (Very Helpful)', '매우 많이 도움이 됨 (Extremely Helpful)'], parent: 4 },
   { question: '귀하의 분야에서 AI를 얼마나 신뢰할 수 있었습니까? (How trustworthy did you find AI in your field?):', type: 'likertScale', scaleLabels: ['전혀 신뢰하지 않음 (Not Trustworthy at All)', '조금 신뢰함 (Slightly Trustworthy)', '신뢰함 (Moderately Trustworthy)', '매우 신뢰함 (Very Trustworthy)', '완전히 신뢰함 (Completely Trustworthy)'], parent: 4 },
-  // 투자 AI 질문
   { question: '금융 자산(예: 주식, 채권, 펀드 등)에 투자해본 경험이 있습니까? (Do you have experience in financial asset investment (e.g., stocks, bonds, funds)?):', type: 'options', options: ['예 (Yes)', '아니오 (No)'] },
-  { question: '증권사 및 AI 투자 플랫폼 등에서 제공하는 AI 기반 주식 종목 추천 기능을 알고 있습니까? (Are you aware of AI stock recommendation features provided by securities firms, AI investment platforms, etc.?):', type: 'options', options: ['예 (Yes)', '아니오 (No)'] },
-  // 아래는 예를 선택했을 때 나오는 꼬리 질문들
+  { question: '증권사 및 AI 투자 플랫폼 등에서 제공하는 알고리즘 기반 주식 종목 추천 기능을 알고 있습니까? (Are you aware of AI stock recommendation features provided by securities firms, AI investment platforms, etc.?):', type: 'options', options: ['예 (Yes)', '아니오 (No)'] },
   { question: 'AI 기반 주식 종목 추천 기능을 얼마나 신뢰할 수 있습니까? (How much do you trust the current AI stock recommendation feature?):', type: 'likertScale', scaleLabels: ['전혀 신뢰하지 않음 (Not Trustworthy at All)', '조금 신뢰함 (Slightly Trustworthy)', '신뢰함 (Moderately Trustworthy)', '매우 신뢰함 (Very Trustworthy)', '완전히 신뢰함 (Completely Trustworthy)'], parent: 8 },
+  { question: '다음의 투자 지표에 대해 얼마나 알고 계십니까? (How familiar are you with the following investment indicators?):', type: 'text' },
+  { question: 'PER (주가수익비율)', type: 'likertScale', scaleLabels: ['잘 모름 (Not Familiar)', '들어본 적 있음 (Somewhat Familiar)', '어느 정도 알고 있음 (Moderately Familiar)', '잘 알고 있음 (Very Familiar)'] },
+  { question: 'PBR (주가순자산비율)', type: 'likertScale', scaleLabels: ['잘 모름 (Not Familiar)', '들어본 적 있음 (Somewhat Familiar)', '어느 정도 알고 있음 (Moderately Familiar)', '잘 알고 있음 (Very Familiar)'] },
+  { question: '배당수익률 (Dividend Yield)', type: 'likertScale', scaleLabels: ['잘 모름 (Not Familiar)', '들어본 적 있음 (Somewhat Familiar)', '어느 정도 알고 있음 (Moderately Familiar)', '잘 알고 있음 (Very Familiar)'] },
+  { question: '시가총액 (Market Capitalization)', type: 'likertScale', scaleLabels: ['잘 모름 (Not Familiar)', '들어본 적 있음 (Somewhat Familiar)', '어느 정도 알고 있음 (Moderately Familiar)', '잘 알고 있음 (Very Familiar)'] },
+  { question: '베타 (Beta)', type: 'likertScale', scaleLabels: ['잘 모름 (Not Familiar)', '들어본 적 있음 (Somewhat Familiar)', '어느 정도 알고 있음 (Moderately Familiar)', '잘 알고 있음 (Very Familiar)'] }
 ];
+
+
+
+
+
+
 
 
 function BeforeSurvey() {

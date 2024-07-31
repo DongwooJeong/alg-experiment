@@ -58,7 +58,7 @@ function NC() {
 
       if (response.ok) {
         alert('Survey submitted successfully.');
-        navigate('/1/third-survey');
+        navigate('/1/instruction-page');
       } else {
         alert('Failed to submit survey.');
       }

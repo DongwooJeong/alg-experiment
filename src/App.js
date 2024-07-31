@@ -27,7 +27,7 @@ import ResultTen from './pages/1/ResultTen';
 import AfterSurvey from './pages/1/AfterSurvey';
 import ThankYou from './pages/1/ThankYou';
 import NC from './pages/1/NC';
-import IP from './pages/1/IP';
+
 
 import LoginPageIO from './pages/2/LoginPageIO';
 import RegisterPageIO from './pages/2/RegisterPageIO';
@@ -57,7 +57,9 @@ import ResultTenIO from './pages/2/ResultTenIO';
 import AfterSurveyIO from './pages/2/AfterSurveyIO';
 import ThankYouIO from './pages/2/ThankYouIO';
 import NCIO from './pages/2/NCIO';
-import IPIO from './pages/2/IPIO';
+
+import Control from './pages/1/Control';
+import ControlIO from './pages/2/Control';
 
 
 
@@ -93,7 +95,10 @@ function App() {
         <Route path="/1/after-survey" element={<AfterSurvey />} />
         <Route path="/1/thank-you" element={<ThankYou />} />
         <Route path="/1/second-survey" element={<NC />} />
-        <Route path="/1/third-survey" element={<IP />} />
+
+
+        <Route path="/1/control" element={<Control />} />
+        <Route path="/2/control" element={<ControlIO />} />
 
         <Route path="/2/" element={<LoginPageIO />} />
         <Route path="/2/register" element={<RegisterPageIO />} />
@@ -123,7 +128,7 @@ function App() {
         <Route path="/2/after-survey" element={<AfterSurveyIO />} />
         <Route path="/2/thank-you" element={<ThankYouIO />} />
         <Route path="/2/second-survey" element={<NCIO />} />
-        <Route path="/2/third-survey" element={<IPIO />} />
+
       </Routes>
     </Router>
   );

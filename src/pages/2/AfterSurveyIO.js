@@ -4,33 +4,41 @@ import { MY_URL } from '../../url';
 import '../style.css';
 
 const surveyQuestions = [
-  { question: '실험을 통한 최종 수익에 AI 추천과 본인의 판단 중 어느 것이 더 큰 기여를 했습니까? (Which contributed more to your final profits through the experiment: AI recommendations or your own judgment?)', 
+  { question: '실험에서의 최종 수익에 알고리즘 추천과 본인의 판단 중 어느 것이 더 큰 기여를 했습니까? (Which contributed more to your final profits through the experiment: algorithm-based recommendations or your own judgment?)', 
     type: 'likertScale', 
-    scaleLabels: ['AI가 훨씬 더 많이 기여함 (AI much more)', 'AI가 약간 더 많이 기여함 (AI slightly more)', '둘 다 비슷함 (Equally)', '본인 판단이 약간 더 많이 기여함 (Myself slightly more)', '본인 판단이 훨씬 더 많이 기여함 (Myself much more)'] },
+    scaleLabels: ['알고리즘이 훨씬 더 많이 기여함 (Algorithm much more)', '알고리즘이 약간 더 많이 기여함 (Algorithm slightly more)', '둘 다 비슷함 (Equally)', '본인 판단이 약간 더 많이 기여함 (Myself slightly more)', '본인 판단이 훨씬 더 많이 기여함 (Myself much more)'] },
 
-  { question: '실험이 끝난 후 AI를 얼마나 신뢰하게 되었습니까? (How much do you trust AI after completing the experiment?)', 
-    type: 'likertScale', 
-    scaleLabels: ['전혀 신뢰하지 않음 (Not at all)', '약간 신뢰함 (Slightly)', '신뢰함 (Moderately)', '매우 신뢰함 (Very)', '완전히 신뢰함 (Completely)'] },
-
-  { question: 'AI의 조언이 투자 수익 창출에 얼마나 도움이 되었습니까? (How helpful was AI advice in generating investment returns?)', 
+  
+  { question: '알고리즘의 조언이 투자 수익 창출에 얼마나 도움이 되었습니까? (How helpful was algorithmic advice in generating investment returns?)', 
     type: 'likertScale', 
     scaleLabels: ['매우 도움이 되지 않음 (Very unhelpful)', '도움이 되지 않음 (Unhelpful)', '보통 (Neutral)', '도움이 됨 (Helpful)', '매우 도움이 됨 (Very helpful)'] },
-
-  { question: '투자 성향 설문조사 결과에 기반한 AI 추천 종목이 일반 AI 추천 종목보다 유용했습니까? (Was the AI recommendation based on your investment preference survey more helpful than the regular AI recommendation?)', 
+  
+  { question: '실험이 끝난 후 알고리즘을 얼마나 신뢰하게 되었습니까? (How much do you trust algorithm after completing the experiment?)', 
     type: 'likertScale', 
-    scaleLabels: ['훨씬 더 유용함 (Much more)', '약간 더 유용함 (Slightly more)', '비슷함 (About the same)', '덜 유용함 (Less helpful)', '잘 모르겠음 (Not applicable)'] },
-
-  { question: 'AI 추천을 따랐을 때와 그렇지 않았을 때의 경제적 성과에는 어떤 차이가 있었습니까? (What was the difference in economic outcomes when following AI advice versus not?)', 
+    scaleLabels: ['전혀 신뢰하지 않음 (Not at all)', '약간 신뢰함 (Slightly)', '신뢰함 (Moderately)', '매우 신뢰함 (Very)', '완전히 신뢰함 (Completely)'] },
+  
+  { question: '알고리즘 추천을 따랐을 때와 그렇지 않았을 때의 경제적 성과에는 어떤 차이가 있었습니까? (What was the difference in economic outcomes when following algorithmic advice versus not?)', 
     type: 'likertScale', 
     scaleLabels: ['매우 긍정적 (Very positive)', '긍정적 (Positive)', '중립적 (Neutral)', '부정적 (Negative)', '매우 부정적 (Very negative)'] },
 
-  { question: 'AI를 사용한 후 투자 결정에 대한 자신감이 어떻게 변했습니까? (How has your confidence in making investment decisions changed after using AI?)', 
+    { question: "알고리즘의 추천을 이해하고 따르는 과정에서 경험한 정신적 요구와 피로도를 평가해 주십시오. (Please assess the mental demand and fatigue experienced in understanding and following the algorithm's recommendations.):",
+      type: 'likertScale',
+      scaleLabels: [
+          '정신적 요구가 매우 높고 매우 피곤함 (Mentally very demanding and very exhausting)',
+          '정신적 요구가 높고 피곤함 (Mentally demanding and exhausting)',
+          '정신적 요구가 보통이며 보통 수준의 피로감 (Moderately demanding and moderately exhausting)',
+          '정신적 요구가 적고 조금 피곤함 (Mentally undemanding and slightly exhausting)',
+          '정신적 요구가 전혀 없고 전혀 피곤하지 않음 (Not mentally demanding and not exhausting at all)'
+        ]
+      },
+
+  { question: '알고리즘 종목 추천을 사용한 후 투자 결정에 대한 자신감이 어떻게 변했습니까? (How has your confidence in making investment decisions changed after using algorithm?)', 
     type: 'likertScale', 
     scaleLabels: ['매우 증가함 (Increased significantly)', '증가함 (Increased)', '변화 없음 (No change)', '감소함 (Decreased)', '매우 감소함 (Decreased significantly)'] },
 
-  { question: '향후 비슷한 AI 기반 도구를 사용할 의향이 어느 정도입니까? (How willing are you to use similar AI-based tools in the future?)', 
+  { question: '향후 비슷한 알고리즘 기반 도구를 사용할 의향이 어느 정도입니까? (How willing are you to use similar algorithm-based tools in the future?)', 
     type: 'likertScale', 
-    scaleLabels: ['매우 높음 (Very likely)', '높음 (Likely)', '보통 (Neutral)', '낮음 (Unlikely)', '매우 낮음 (Very unlikely)'] }
+    scaleLabels: ['매우 높음 (Very likely)', '높음 (Likely)', '보통 (Neutral)', '낮음 (Unlikely)', '매우 낮음 (Very unlikely)'] }  
 ];
 
 
