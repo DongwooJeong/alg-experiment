@@ -47,6 +47,13 @@ function NC() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const isAllAnswered = answers.every(answer => answer !== '');
+      if (!isAllAnswered) {
+        alert('모든 질문에 답해주세요. (Please answer all of the questions.)');
+        return;
+    }
+
     try {
       const response = await fetch(`${MY_URL}/api/users/survey-nc`, {
         method: 'POST',

@@ -127,7 +127,7 @@ function ResultEight() { // 수정 1
                 <p>3개월 후 주가 (Price after three months): {selectedStockData?.future_price}</p>
             </div>
             <div>
-                <h3>AI 추천 종목 (AI Recommended Stock): {aiRecommendedStockData?.company_id}</h3>
+                <h3>알고리즘 추천 종목 (Algorithmic Stock Recommendation): {aiRecommendedStockData?.company_id}</h3>
                 <p>기존 주가 (Base price): {aiRecommendedStockData?.base_price}</p>
                 <p>3개월 후 주가 (Price after three months): {aiRecommendedStockData?.future_price}</p>
             </div>

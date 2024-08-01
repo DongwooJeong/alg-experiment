@@ -21,10 +21,10 @@ function Control() { // 수정 1
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
-    const round = 1; // 수정 2
+    const round = 11; // 수정 2
   
     // 재무 정보 가져오기
-      fetch(`${MY_URL}/api/financialsRoutes/financials2/${round}`)
+      fetch(`${MY_URL}/api/financialsRoutes/financials/${round}`)
           .then(response => response.json())
           .then(data => setFinancialData(data))
           .catch(error => console.error('Error fetching financial data:', error));
