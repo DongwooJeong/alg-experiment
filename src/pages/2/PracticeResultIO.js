@@ -7,11 +7,11 @@ function ResultOne() { // 수정 1
     const [aiRecommendedStock, setAiRecommendedStock] = useState('');
     const [financialData, setFinancialData] = useState([]);
     const [userProfits, setUserProfits] = useState(null);
-    const round = 1; 
 
     useEffect(() => {
         // 로컬 스토리지에서 사용자 이메일과 현재 라운드 정보 가져오기
         const userId = localStorage.getItem('userId');
+        const round = 11; // 수정 2
     
         // 사용자가 선택한 주식 정보를 가져오는 요청 보내기
         fetch(`${MY_URL}/api/financialsRoutes/user-selected-stock/${userId}/${round}`)
@@ -26,6 +26,7 @@ function ResultOne() { // 수정 1
             .then(response => response.json())
             .then(data => {
             setFinancialData(data);
+            // console.log(data);
             })
             .catch(error => console.error('Error fetching financial data:', error));
     
@@ -88,7 +89,7 @@ function ResultOne() { // 수정 1
 
     const saveUserProfit = (finalProfit) => {
         const userId = localStorage.getItem('userId'); // 현재 사용자 이메일
-        
+        const round = 1; // 수정 4
     
         // fetch 호출 결과인 Promise를 반환
         return fetch(`${MY_URL}/api/answerRoutes/update-profits`, {
@@ -120,7 +121,7 @@ function ResultOne() { // 수정 1
 
     return (
         <div className='result-container'>
-            <h2>Round {round} Result</h2> 
+            <h2>Practice Round Result</h2> {/* 수정 5 */}
             <div>
                 <h3>투자자가 선택한 종목 (Selected Stock): {selectedStockData?.company_id}</h3>
                 <p>기존 주가 (Base price): {selectedStockData?.base_price}</p>
@@ -154,18 +155,18 @@ function ResultOne() { // 수정 1
             </table>
             <div>
                 <p>가장 높은 수익의 종목 (Highest Profit Stock): {highestProfitStock}</p>
-                <p>{round}라운드 후 투자자의 누적 수익 (Cumulative Profit after Round {round}): {finalProfit}</p> {/* 수정 6 */}
+                <p>연습 라운드 후 투자자의 누적 수익 (Cumulative Profit after Round 1): {finalProfit}</p> {/* 수정 6 */}
             </div>
-            <div className='buttonCenter'>
+            <div class='buttonCenter'>
             <button className="btn-green" onClick={() => {
                 saveUserProfit(finalProfit).then(() => {
-                    window.location.href = '/1/round-two'; // {/* 수정 7 */}
+                    window.location.href = '/2/round-one'; // {/* 수정 7 */}
                 })
                 .catch(error => {
                     // 에러 처리 로직
                     alert("Failed to save profit. Please try again.");
                 });
-            }}>다음 라운드 (Next Round)</button>
+            }}>실험 시작하기 (Begin Experiment)</button>
         </div></div>
     );
 }

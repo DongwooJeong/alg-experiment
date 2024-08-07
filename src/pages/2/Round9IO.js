@@ -15,13 +15,13 @@ function Round9IO() { // 수정 1
   const [isFinalDecisionVisible, setIsFinalDecisionVisible] = useState(false);
   const [profits, setProfits] = useState({ beginning: 0 });
   const [timer, setTimer] = useState(180); // 라운드 시간 설정
-  const [timerActive, setTimerActive] = useState(true); // 타이머 활성 상태
+  const [timerActive, setTimerActive] = useState(false); // 타이머 활성 상태
   const [loading, setLoading] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const round = 9; // 수정 2
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
-    const round = 9; // 수정 2
   
     // 재무 정보 가져오기
       fetch(`${MY_URL}/api/financialsRoutes/financials/${round}`)
@@ -53,7 +53,7 @@ function Round9IO() { // 수정 1
     } else if (timer === 0) {
       clearInterval(interval); // 타이머 중지
       alert('시간이 만료되었습니다! 다음 페이지로 이동합니다. (Time is up! Moving to the next page.)'); // 사용자에게 알림
-      window.location.href = '/2/result-nine'; // 수정 3
+      window.location.href = '/2/result-nine'; // 수정 
     }
 
     return () => clearInterval(interval); // 컴포넌트 언마운트 시 인터벌 정리
@@ -62,41 +62,34 @@ function Round9IO() { // 수정 1
 
 
 const handleUserPreferenceClick = () => {
-    const round = 9; // 수정 4
     if (isUserPreferenceVisible) return;
-  
     const wantSurvey = window.confirm("알고리즘에 의해 계산된 추천 투자 종목을 확인하시겠습니까? (Would you like to see stock recommended by the algorithm?)");
     
     if (wantSurvey) {
       // 사용자가 'Yes'를 선택한 경우
       setIsUserPreferenceVisible(true); // 추천을 보여줌
       setIsButtonVisible(false);
-      saveResponseToDB(true, round); 
-    } else {
-      saveResponseToDB(false, round); // 사용자가 선호도 조사를 진행하지 않음
-    }
+    } 
 };
 
 const handleUPRecommendationClick = async () => {
   if (isUPRecommendationVisible) return;
-
   const wantUPR = window.confirm("설문 결과에 따라 계산된 알고리즘 추천 종목을 확인하시겠습니까? (Would you like to see the stock recommendation calculated by the algorithm based on the result of the survey?)");
 
   if (wantUPR) {
     // 사용자가 'Yes'를 선택한 경우
     await sendUserPreferencesToDB(rankings); // rankings 객체를 직접 전달
+    saveResponseToDB(true, round); 
     setLoading(true);
     setIsUserPreferenceVisible(false); 
     setTimeout(() => {
-      
       setIsUPRecommendationVisible(true); 
       setLoading(false); // 로딩 상태 비활성화
   }, 5000);
-    
-  } 
+  } else {
+    saveResponseToDB(false, round); // 사용자가 선호도 조사를 진행하지 않음
+  }
 };
-
-
 
 const sendUserPreferencesToDB = async (rankings) => {
   const userEmail = localStorage.getItem('userId');
@@ -121,7 +114,7 @@ const sendUserPreferencesToDB = async (rankings) => {
       },
       body: JSON.stringify({
           email: userEmail,
-          round: 9, // 수정 5
+          round: round,
           preferences: preferences,
           preferenceTimestamp: mysqlTimestamp,
       }),
@@ -175,7 +168,7 @@ const handlefirstDecisionClick = async() => {
           },
           body: JSON.stringify({
               email: localStorage.getItem('userId'),
-              round: 9, // 수정 6
+              round: round, 
               action: {
                   selectedStock: firstSelectedStock,
                   selectTimestamp: mysqlTimestamp,
@@ -207,11 +200,11 @@ const handleInvestButtonClick = async () => {
                   email: userEmail, // 이메일
                   selectedStock: selectedStock, // 선택한 주식
                   decisionTimestamp: mysqlTimestamp, // 결정 시각
-                  round: 9, // 수정 7
+                  round: round, 
               }),
           });
           alert('Investment decision saved successfully.');
-          window.location.href = '/2/result-nine'; // 수정 8
+          window.location.href = '/2/result-nine'; // 수정 4
       } catch (error) {
           console.error('Error saving investment decision:', error);
       }
@@ -246,10 +239,43 @@ function formatNumber(num) {
 function formatCurrency(value) {
   const number = parseFloat(value);
   return !isNaN(number) ? `${number.toFixed(2)}` : 'N/A';
-}
+};
 
+const fetchPreferences = async () => {
+  const userEmail = localStorage.getItem('userId');
+  try {
+    const response = await fetch(`${MY_URL}/api/answerRoutes/get-user-preferences`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email: userEmail, round })
+    });
 
-  const [rankings, setRankings] = useState({
+    if (response.ok) {
+      const data = await response.json();
+      setRankings({
+        'Beta': { rank: data.rank1 || '', preference: data.pref1 || '' },
+        'Market Capitalization': { rank: data.rank2 || '', preference: data.pref2 || '' },
+        'PBR': { rank: data.rank3 || '', preference: data.pref3 || '' },
+        'PER': { rank: data.rank4 || '', preference: data.pref4 || '' },
+        'Dividend Yield': { rank: data.rank5 || '', preference: data.pref5 || '' },
+        'Past Return': { rank: data.rank6 || '', preference: data.pref6 || '' },
+      });
+    } else {
+      console.warn('No previous round data found');
+    }
+  } catch (error) {
+    console.error('Error fetching preferences:', error);
+  }
+};
+
+// 컴포넌트가 마운트될 때 데이터 페칭
+React.useEffect(() => {
+  fetchPreferences();
+}, []);
+
+const [rankings, setRankings] = useState({
     'Beta': { rank: '', preference: '' },
     'Market Capitalization': { rank: '', preference: '' },
     'PBR': { rank: '', preference: '' },
@@ -284,9 +310,9 @@ function formatCurrency(value) {
 
 return (
     <div className='exp-container'>
-      <h2>Round 9</h2> {/* 수정 9 */}
+      <h2>Round {round}</h2>
         <div style={containerStyles(false)}>
-        <p>잔액 (Balance): {profits?.profit_8 ?? 'Loading...'}</p> {/* 수정 10 */}
+        <p>초기 투자금 (Beginning Balance): {profits?.profit_8 ?? 'Loading...'}</p> {/* 수정 5 */}
           <div className="timer">
             Time left: {Math.floor(timer / 60)}:{('0' + (timer % 60)).slice(-2)}
           </div>
@@ -301,7 +327,7 @@ return (
                               <th>시가총액 (Market Capitalization)</th>
                               <th>PBR</th>
                               <th>PER</th>
-                              <th>배당수익성 (Dividend Yield)</th>
+                              <th>배당수익률 (Dividend Yield)</th>
                               <th>지난 3개월 간의 수익 (Past Return)</th>
                             </tr>
                         </thead>
@@ -315,7 +341,7 @@ return (
                                 <td>{formatCurrency(stock.PBR)}</td>
                                 <td>{formatCurrency(stock.PER)}</td>
                                 <td>{formatCurrency(stock.Dividend_Yield*100)}%</td>
-                                <td>${formatCurrency(stock.Past_Return)}</td>
+                                <td>{formatCurrency(stock.Past_Return)}%</td>
                             </tr>                            
                             ))}
                         </tbody>
@@ -353,7 +379,7 @@ return (
         <td>The ratio of a stock's price compared to the company's earnings per share</td>
     </tr>
     <tr>
-        <td>배당수익성 (Dividend Yield)</td>
+        <td>배당수익률 (Dividend Yield)</td>
         <td>회사가 주주에게 지급하는 배당금이 주식 가격에 비해 어느 정도인지를 나타냄</td>
         <td>Indicates how much a company pays out in dividends each year relative to its stock price</td>
     </tr>
@@ -421,7 +447,7 @@ return (
     <div className="question">
       <div>
         <div>
-          <label>위의 표에 나타난 여섯 가지 지표 (베타, 시가총액, PBR, PER, 배당수익성, 지난 3개월 간의 수익) 중 어떤 지표를 더 중요하게 생각하십니까? 각 항목을 중요도 순서대로 랭크해 주시고, 각 항목에 대하여 낮은 값을 선호하는지 높은 값을 선호하는지 선택해 주세요.</label>
+          <label>위의 표에 나타난 여섯 가지 지표 (베타, 시가총액, PBR, PER, 배당수익률, 지난 3개월 간의 수익) 중 어떤 지표를 더 중요하게 생각하십니까? 각 항목을 중요도 순서대로 랭크해 주시고, 각 항목에 대하여 낮은 값을 선호하는지 높은 값을 선호하는지 선택해 주세요.</label>
         </div>
         <div style={{marginTop: '15px'}}>
           <label>Which of the following six indicators (Beta, Market Capitalization, PBR, PER, Dividend Yield, Past Return) do you consider most important? Please rank each item in order of importance and select whether you prefer a lower or higher value for each indicator.</label>

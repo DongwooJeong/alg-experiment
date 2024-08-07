@@ -14,13 +14,14 @@ function Round4() { // 수정 1
   const [isFinalDecisionVisible, setIsFinalDecisionVisible] = useState(false);
   const [profits, setProfits] = useState({ beginning: 0 });
   const [timer, setTimer] = useState(180); // 180초로 설정
-  const [timerActive, setTimerActive] = useState(true); // 타이머 활성 상태
+  const [timerActive, setTimerActive] = useState(false); // 타이머 활성 상태
   const [loading, setLoading] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const round = 4; // 수정 2
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
-    const round = 4; // 수정 2
+    
   
     // 재무 정보 가져오기
       fetch(`${MY_URL}/api/financialsRoutes/financials/${round}`)
@@ -60,7 +61,7 @@ function Round4() { // 수정 1
   
   // AI 추천 종목 표시 및 클릭 이벤트 핸들러
   const handleRecommendationClick = () => {
-    const round = 4; // 수정 3
+
     // 이미 AI 추천이 보이는 상태일 경우 아무 작업도 수행하지 않음
     if (isRecommendationVisible) return;
   
@@ -125,7 +126,7 @@ const handlefirstDecisionClick = async() => {
           },
           body: JSON.stringify({
               email: localStorage.getItem('userId'),
-              round: 4, // 수정 4
+              round: round, // 수정 4
               action: {
                   selectedStock: firstSelectedStock,
                   selectTimestamp: mysqlTimestamp,
@@ -157,7 +158,7 @@ const handleInvestButtonClick = async () => {
                   email: userEmail, // 이메일
                   selectedStock: selectedStock, // 선택한 주식
                   decisionTimestamp: mysqlTimestamp, // 결정 시각
-                  round: 4, // 수정 5
+                  round: round, // 수정 5
               }),
           });
           alert('Investment decision saved successfully.');
@@ -204,7 +205,7 @@ const toggleVisibility = () => {
 
 return (
     <div className='exp-container'>
-      <h2>Round 4</h2> {/* 수정 7 */}
+      <h2>Round {round}</h2> {/* 수정 7 */}
         <div style={containerStyles(false)}>
         <p>잔액 (Balance): {profits?.profit_3 ?? 'Loading...'}</p> {/* 수정 8 */}
           <div className="timer">
@@ -221,7 +222,7 @@ return (
                               <th>시가총액 (Market Capitalization)</th>
                               <th>PBR</th>
                               <th>PER</th>
-                              <th>배당수익성 (Dividend Yield)</th>
+                              <th>배당수익률 (Dividend Yield)</th>
                               <th>지난 3개월 간의 수익 (Past Return)</th>
                             </tr>
                         </thead>
@@ -235,7 +236,7 @@ return (
                                 <td>{formatCurrency(stock.PBR)}</td>
                                 <td>{formatCurrency(stock.PER)}</td>
                                 <td>{formatCurrency(stock.Dividend_Yield*100)}%</td>
-                                <td>${formatCurrency(stock.Past_Return)}</td>
+                                <td>{formatCurrency(stock.Past_Return)}%</td>
                             </tr>                            
                             ))}
                         </tbody>
@@ -273,7 +274,7 @@ return (
         <td>The ratio of a stock's price compared to the company's earnings per share</td>
     </tr>
     <tr>
-        <td>배당수익성 (Dividend Yield)</td>
+        <td>배당수익률 (Dividend Yield)</td>
         <td>회사가 주주에게 지급하는 배당금이 주식 가격에 비해 어느 정도인지를 나타냄</td>
         <td>Indicates how much a company pays out in dividends each year relative to its stock price</td>
     </tr>

@@ -10,13 +10,14 @@ function InstructionPage() {
       title: "Instructions",
       description: "Thank you for participating in our study! This research is designed to analyze the impact of algorithm-based stock recommendation systems on investment decisions. Participants will go through a total of 10 rounds. In each round, information on five different stocks and key indicators (e.g., Market Capitalization, Dividend Yield etc.) will be provided. Based on the information provided, your task is to select the stock that you anticipate will yield the highest return after three months.",
       procedure: [
-        "Information on five different stocks will be provided in each round.",
-        "Participants may receive algorithm-based recommendations, which is designed to predict the stocks with the highest potential returns.",
-        "Participants in the experiment rank the importance of each indicator based on its potential impact on returns over the next three months. The algorithm then uses these results to calculate and recommend a stock",
-        "After each round, you will be able to see the actual returns of the stock you selected after three months, the returns of the algorithm-recommended stock, and the returns of each of the other stocks.",
-        "Participants will receive an initial investment fund of $1,000 in the first round.",
-        "After making an investment decision each round, the remaining funds will be adjusted based on the returns of the chosen stocks.",
-        "The goal of this investment experiment is to have the most funds possible at the end of the 10 rounds.",
+        "Information about five stock options is provided in each round.",
+        "Participants receive $1,000 in investment funds at the beginning of the first round.",
+        "Participants must predict and select the stock that will have the highest return in three months among the five options.",
+        "After making an investment decision each round, all funds are fully invested in the chosen stock, and the return is adjusted upon selling it after three months.",
+        "The goal of this investment experiment is to have as much money as possible after completing all ten rounds.",
+        "Participants can receive algorithmic recommendations, designed to predict stocks with the highest potential returns.",
+        "If they choose to receive algorithm recommendations, participants rank the importance of each metric's impact on the three-month return. The algorithm uses these rankings to calculate and recommend stocks.",
+        "After each round, participants can see the actual three-month returns of their chosen stock, the return of the algorithm-recommended stock, and the returns of the other stocks.",
         "After completing all rounds, please participate in a brief survey about the experiment."
       ],
       benefits: [
@@ -29,15 +30,16 @@ function InstructionPage() {
     
     KR: {
       title: "실험 설명",
-      description: "저희 연구에 참여해 주셔서 감사합니다! 이 연구는 알고리즘 기반 주식 종목 추천 시스템이 투자 결정에 미치는 영향을 분석하고자 설계되었습니다. 참가자는 총 10 라운드를 진행하게 됩니다. 각 라운드에서는 다섯 가지의 주식 종목과 주요 지표들(예: 시가총액, 배당수익성 등)이 제공됩니다. 제공된 정보를 바탕으로 3개월 후 가장 높은 수익을 낼 것으로 예상되는 주식을 선택하는 것이 과제입니다.",
+      description: "저희 연구에 참여해 주셔서 감사합니다! 이 연구는 알고리즘 기반 주식 종목 추천 시스템이 투자 결정에 미치는 영향을 분석하고자 설계되었습니다. 참가자는 총 10 라운드를 진행하게 됩니다. 각 라운드에서는 다섯 가지의 주식 종목과 주요 지표들(예: 시가총액, 배당수익률 등)이 제공됩니다. 제공된 정보를 바탕으로 3개월 후 가장 높은 수익을 낼 것으로 예상되는 주식을 선택하는 것이 과제입니다.",
       procedure: [
-        "각 라운드마다 다섯 가지의 주식에 대한 정보가 제공됩니다.",
-        "실험 참가자는 알고리즘 추천을 받을 수 있으며, 이는 가장 높은 수익 잠재력을 가진 주식을 예측하도록 설계되었습니다.",
-        "실험 참가자는 각 지표가 3개월 후의 수익률에 미칠 영향에 대한 중요도를 평가하여 순위를 매깁니다. 알고리즘은 이 결과를 기반으로 계산하여 종목을 추천합니다",
-        "각 라운드 후에는 선택한 주식의 실제 3개월 후의 수익률, 알고리즘이 추천한 주식의 수익률, 그리고 나머지 각 주식의 수익률을 확인할 수 있습니다.",
-        "실험 참가자는 첫 번째 라운드에서 투자 자금 1,000달러를 지급받습니다.",
-        "매 라운드에서 투자 결정을 내린 후, 보유하고 있는 자금은 선택한 종목의 수익률을 반영하여 조정됩니다.",
-        "10번의 라운드가 모두 끝났을 때 최대한 많은 자금을 보유하는 것이 이번 투자 실험의 과제입니다.",
+        "각 라운드마다 다섯 개의 주식 종목에 대한 정보가 제공됩니다.",
+        "실험 참가자는 첫 번째 라운드에서 1,000달러의 투자 자금을 지급받습니다.",
+        "참가자는 다섯 종목 중에서 3개월 후 가장 높은 수익률을 보일 종목을 예측하여 선택해야 합니다.",
+        "각 라운드에서 투자 결정을 내린 후, 보유 자금은 선택한 종목에 전액 투자되고, 3개월 후 매도 시 수익으로 조정됩니다.",
+        "10번의 라운드가 모두 끝난 후 최대한 많은 자금을 보유하는 것이 이번 투자 실험의 목표입니다.",
+        "실험 참가자는 알고리즘 추천을 받을 수 있으며, 이 알고리즘은 가장 높은 수익 잠재력을 가진 주식을 예측하도록 설계되었습니다.",
+        "알고리즘 추천을 선택한 경우, 실험 참가자는 각 지표가 3개월 후 수익률에 미칠 영향을 평가하여 순위를 매깁니다. 알고리즘은 이 평가를 바탕으로 종목을 추천합니다.",
+        "각 라운드 후에는 선택한 주식의 실제 3개월 후 수익률, 알고리즘이 추천한 주식의 수익률, 그리고 나머지 각 주식의 수익률을 확인할 수 있습니다.",
         "모든 라운드를 완료한 후, 실험에 대한 간단한 설문조사에 참여해 주세요."
       ],
       benefits: [
@@ -90,8 +92,8 @@ function InstructionPage() {
         </ul>
       </div>
       <div className="button-box">
-        <Link to="/2/round-one">
-          <button className="btn-green">Begin Experiment</button>
+        <Link to="/2/practice">
+          <button className="btn-green">연습 라운드 (Practice Round)</button>
         </Link>
       </div>
     </div>

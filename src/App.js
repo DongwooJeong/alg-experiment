@@ -58,8 +58,11 @@ import AfterSurveyIO from './pages/2/AfterSurveyIO';
 import ThankYouIO from './pages/2/ThankYouIO';
 import NCIO from './pages/2/NCIO';
 
-import Control from './pages/1/Control';
-import ControlIO from './pages/2/Control';
+import Practice from './pages/1/Practice';
+import PracticeIO from './pages/2/PracticeIO';
+
+import PracticeResult from './pages/1/PracticeResult';
+import PracticeResultIO from './pages/2/PracticeResultIO';
 
 
 
@@ -97,8 +100,10 @@ function App() {
         <Route path="/1/second-survey" element={<NC />} />
 
 
-        <Route path="/1/control" element={<Control />} />
-        <Route path="/2/control" element={<ControlIO />} />
+        <Route path="/1/practice" element={<Practice />} />
+        <Route path="/2/practice" element={<PracticeIO />} />
+        <Route path="/1/practice-result" element={<PracticeResult />} />
+        <Route path="/2/practice-result" element={<PracticeResultIO />} />
 
         <Route path="/2/" element={<LoginPageIO />} />
         <Route path="/2/register" element={<RegisterPageIO />} />

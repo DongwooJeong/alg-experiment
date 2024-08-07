@@ -7,8 +7,17 @@ const surveyQuestions = [
   { question: '실험에서의 최종 수익에 알고리즘 추천과 본인의 판단 중 어느 것이 더 큰 기여를 했습니까? (Which contributed more to your final profits through the experiment: algorithm-based recommendations or your own judgment?)', 
     type: 'likertScale', 
     scaleLabels: ['알고리즘이 훨씬 더 많이 기여함 (Algorithm much more)', '알고리즘이 약간 더 많이 기여함 (Algorithm slightly more)', '둘 다 비슷함 (Equally)', '본인 판단이 약간 더 많이 기여함 (Myself slightly more)', '본인 판단이 훨씬 더 많이 기여함 (Myself much more)'] },
-
   
+  {
+    question: '어떤 정보가 투자 결정에 가장 큰 영향을 주었습니까? (Which information had the most influence on your investment decisions?)',
+    type: 'likertScale',
+    scaleLabels: ['시가총액 (Market Cap)','주가수익비율 (PER)','주가순자산비율 (PBR)','배당수익률 (Dividend Yield)','베타 (Beta)','알고리즘 추천 (Algorithmic Recommendations)']},
+  
+  {
+    question: '제공된 정보가 투자 결정을 내리는 데 있어 충분했습니까? (Was the information provided sufficient for making investment decisions?)',
+    type: 'likertScale',
+    scaleLabels: ['매우 부족함 (Very insufficient)','부족함 (Insufficient)','보통 (Neutral)','충분함 (Sufficient)','매우 충분함 (Very sufficient)']},
+ 
   { question: '알고리즘의 조언이 투자 수익 창출에 얼마나 도움이 되었습니까? (How helpful was algorithmic advice in generating investment returns?)', 
     type: 'likertScale', 
     scaleLabels: ['매우 도움이 되지 않음 (Very unhelpful)', '도움이 되지 않음 (Unhelpful)', '보통 (Neutral)', '도움이 됨 (Helpful)', '매우 도움이 됨 (Very helpful)'] },

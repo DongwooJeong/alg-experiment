@@ -3,7 +3,7 @@ import containerStyles from './ContainerStyles';
 import { MY_URL } from '../../url';
 import '../style.css';
 
-function Round3() { // 수정 1
+function Control() { // 수정 1
   const [financialData, setFinancialData] = useState([]);
   const [isRecommendationVisible, setIsRecommendationVisible] = useState(false);
   const [recommendedStock, setRecommendedStock] = useState(null);
@@ -17,10 +17,10 @@ function Round3() { // 수정 1
   const [timerActive, setTimerActive] = useState(false); // 타이머 활성 상태
   const [loading, setLoading] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const round = 3; // 수정 2
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
+    const round = 11; // 수정 2
   
     // 재무 정보 가져오기
       fetch(`${MY_URL}/api/financialsRoutes/financials/${round}`)
@@ -52,7 +52,7 @@ function Round3() { // 수정 1
     } else if (timer === 0) {
       clearInterval(interval); // 타이머 중지
       alert('시간이 만료되었습니다! 다음 페이지로 이동합니다. (Time is up! Moving to the next page.)'); // 사용자에게 알림
-      window.location.href = '/1/result-three'; // 수정 3
+      window.location.href = '/1/practice-result'; // 페이지 이동
     }
 
     return () => clearInterval(interval); // 컴포넌트 언마운트 시 인터벌 정리
@@ -60,6 +60,7 @@ function Round3() { // 수정 1
   
   // AI 추천 종목 표시 및 클릭 이벤트 핸들러
   const handleRecommendationClick = () => {
+    // const round = 1; // 수정 3
     // 이미 AI 추천이 보이는 상태일 경우 아무 작업도 수행하지 않음
     if (isRecommendationVisible) return;
   
@@ -73,37 +74,37 @@ function Round3() { // 수정 1
       setTimeout(() => {
         setLoading(false); // 로딩 상태 비활성화
         setIsRecommendationVisible(true); // AI 추천을 보여줌
-        saveResponseToDB(true, round); 
+        // saveResponseToDB(true, round); 
     }, 5000);
-  } else {
-    saveResponseToDB(false, round); // 사용자가 AI 추천을 보지 않음
-    }
+   } // else {
+  //   saveResponseToDB(false, round); // 사용자가 AI 추천을 보지 않음
+  //   }
   };
 
-const saveResponseToDB = async (recCheck, round) => {
-  const userEmail = localStorage.getItem('userId');
-  const timestamp = new Date().toISOString();
-  const mysqlTimestamp = timestamp.replace('T', ' ').replace('Z', '').split('.')[0];
+// const saveResponseToDB = async (recCheck, round) => {
+//   const userEmail = localStorage.getItem('userId');
+//   const timestamp = new Date().toISOString();
+//   const mysqlTimestamp = timestamp.replace('T', ' ').replace('Z', '').split('.')[0];
 
-  try {
-      await fetch(`${MY_URL}/api/answerRoutes/round-actions`, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-              email: userEmail,
-              round: round,
-              action: {
-                  recCheck: recCheck,
-                  recTimestamp: mysqlTimestamp,
-              }
-          }),
-      });
-  } catch (error) {
-      console.error('Error saving recommendation response:', error);
-  }
-};
+//   try {
+//       await fetch(`${MY_URL}/api/answerRoutes/round-actions`, {
+//           method: 'POST',
+//           headers: {
+//               'Content-Type': 'application/json',
+//           },
+//           body: JSON.stringify({
+//               email: userEmail,
+//               round: round,
+//               action: {
+//                   recCheck: recCheck,
+//                   recTimestamp: mysqlTimestamp,
+//               }
+//           }),
+//       });
+//   } catch (error) {
+//       console.error('Error saving recommendation response:', error);
+//   }
+// };
 
 const handlefirstDecisionClick = async() => {
   const confirmation = window.confirm("해당 종목으로의 투자 결정을 진행하시겠습니까? (Are you sure you want to make this investment decision?)");
@@ -124,7 +125,7 @@ const handlefirstDecisionClick = async() => {
           },
           body: JSON.stringify({
               email: localStorage.getItem('userId'),
-              round: round, // 수정 4
+              round: 1,
               action: {
                   selectedStock: firstSelectedStock,
                   selectTimestamp: mysqlTimestamp,
@@ -156,11 +157,11 @@ const handleInvestButtonClick = async () => {
                   email: userEmail, // 이메일
                   selectedStock: selectedStock, // 선택한 주식
                   decisionTimestamp: mysqlTimestamp, // 결정 시각
-                  round: round, // 수정 5
+                  round: 1, // 수정 7
               }),
           });
           alert('Investment decision saved successfully.');
-          window.location.href = '/1/result-three'; // 수정 6
+          window.location.href = '/1/practice-result'; // 수정 8
       } catch (error) {
           console.error('Error saving investment decision:', error);
       }
@@ -203,9 +204,9 @@ const toggleVisibility = () => {
 
 return (
     <div className='exp-container'>
-      <h2>Round {round}</h2> {/* 수정 7 */}
+      <h2>Practice Round</h2> {/* 수정 9 */}
         <div style={containerStyles(false)}>
-        <p>잔액 (Balance): {profits?.profit_2 ?? 'Loading...'}</p> {/* 수정 8 */}
+        <p>초기 투자금 (Beginning Balance): {profits?.beginning ?? 'Loading...'}</p> {/* 수정 10 */}
           <div className="timer">
             Time left: {Math.floor(timer / 60)}:{('0' + (timer % 60)).slice(-2)}
           </div>
@@ -380,4 +381,4 @@ return (
     );
 }
 
-export default Round3;
+export default Control;
